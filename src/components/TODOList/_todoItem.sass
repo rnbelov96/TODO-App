@@ -1,0 +1,25 @@
+@import './../../style/variables/colors'
+  
+.todoItem
+  background-color: white
+  border-top: solid $bg-color 1px
+  min-height: 50px
+  padding: 5px 20px
+  font-size: 20px
+  display: flex
+  align-items: center
+  position: relative
+  & > input
+    margin-right: 10px
+  &__deleteButton
+    position: absolute
+    right: 20px
+    font-size: 30px
+    top: 0px
+    cursor: pointer
+    color: rgba(0, 0, 0, 0.65)
+    &:hover
+      color: $main-color
+  &_done
+    text-decoration: line-through
+    color: rgba(0, 0, 0, 0.65)

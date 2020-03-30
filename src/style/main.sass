@@ -1,0 +1,22 @@
+@import './../components/Form/form'
+@import './../components/TODOList/todoItem'
+@import './../components/ControlPanel/controlPanel'
+@import './variables/colors'
+body
+  background-color: $bg-color  
+  
+#root
+  display: flex
+  justify-content: center
+
+.container
+  margin-top: 30px
+  width: 65%
+  @media (max-width: 769px)
+    width: 80%
+
+.title
+  font-size: 80px
+  font-weight: 100
+  text-align: center
+  color: $main-color
