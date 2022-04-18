@@ -1,3 +1,5 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import './style/bootstrap-reboot.min.css';
 import './style/main.sass';
 import React from 'react';
