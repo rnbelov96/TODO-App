@@ -1,48 +1,54 @@
-import React from "react";
-import { connect } from "react-redux";
-import { switchFilter, deleteCompleted } from "../../redux/actions/actions";
+import FilterStatus from '@/contstants';
+import { AppActionCreators } from '@/redux/app';
+import {
+  getFilterStatus,
+  getTODOSToShow,
+  getUnfinishedTODOCount,
+} from '@/redux/app/selectors';
+import React from 'react';
+import { connect } from 'react-redux';
 
 function ControlPanel(props) {
   return (
-    <div
-      className="controlPanel"
-      style={!!props.todos.length ? { display: "flex" } : { display: "none" }}
-    >
+    <div className="controlPanel">
       <div
         className="controlPanel__itemsLeft"
-        style={props.show ? { opacity: 1 } : { opacity: 0 }}
-      >{`${props.todos.reduce(
-        (accum, el) => (!el.done ? ++accum : accum),
-        0
-      )} items left`}</div>
+        style={
+          props.unfinishedTODOCount === 0 ? { opacity: 0 } : { opacity: 1 }
+        }
+      >
+        {props.unfinishedTODOCount}
+        {' '}
+        items left
+      </div>
       <div className="controlPanel__groupButtons">
         <div
           className={
-            props.filterBy === "all"
-              ? "controlPanel__groupButton controlPanel__groupButton_active"
-              : "controlPanel__groupButton"
+            props.filterBy === FilterStatus.ALL
+              ? 'controlPanel__groupButton controlPanel__groupButton_active'
+              : 'controlPanel__groupButton'
           }
-          onClick={() => props.onSwitch("all")}
+          onClick={() => props.onSwitch(FilterStatus.ALL)}
         >
           All
         </div>
         <div
           className={
-            props.filterBy === "active"
-              ? "controlPanel__groupButton controlPanel__groupButton_active"
-              : "controlPanel__groupButton"
+            props.filterBy === FilterStatus.ACTIVE
+              ? 'controlPanel__groupButton controlPanel__groupButton_active'
+              : 'controlPanel__groupButton'
           }
-          onClick={() => props.onSwitch("active")}
+          onClick={() => props.onSwitch(FilterStatus.ACTIVE)}
         >
           Active
         </div>
         <div
           className={
-            props.filterBy === "completed"
-              ? "controlPanel__groupButton controlPanel__groupButton_active"
-              : "controlPanel__groupButton"
+            props.filterBy === FilterStatus.COMPLETED
+              ? 'controlPanel__groupButton controlPanel__groupButton_active'
+              : 'controlPanel__groupButton'
           }
-          onClick={() => props.onSwitch("completed")}
+          onClick={() => props.onSwitch(FilterStatus.COMPLETED)}
         >
           Completed
         </div>
@@ -50,7 +56,7 @@ function ControlPanel(props) {
       <div
         className="controlPanel__clearButton"
         style={
-          !!props.todos.filter(el => el.done === true).length
+          props.todos.filter(el => el.done === true).length
             ? { opacity: 1 }
             : { opacity: 0 }
         }
@@ -64,16 +70,16 @@ function ControlPanel(props) {
 
 function mapStateToProps(state) {
   return {
-    filterBy: state.filterBy,
-    show: !!state.todos.filter(el => !el.done).length,
-    todos: state.todos
+    filterBy: getFilterStatus(state),
+    unfinishedTODOCount: getUnfinishedTODOCount(state),
+    todos: getTODOSToShow(state),
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onSwitch: value => dispatch(switchFilter(value)),
-    onDeleteCompleted: () => dispatch(deleteCompleted())
+    onSwitch: value => dispatch(AppActionCreators.switchFilter(value)),
+    onDeleteCompleted: () => dispatch(AppActionCreators.deleteCompletedTODO()),
   };
 }
 

@@ -1,26 +1,39 @@
+import { AppActionCreators } from '@/redux/app';
 import React from 'react';
-import { connect } from "react-redux";
-import { changeInput, submit } from '../../redux/actions/actions';
+import { connect } from 'react-redux';
 
 function Form(props) {
   return (
-    <form className='form' onSubmit={props.OnSubmit}>
-      <input placeholder="What needs to be done?" onChange={props.onChange} value={props.inputText} type="text"/>
+    <form
+      className="form"
+      onSubmit={e => {
+        e.preventDefault();
+        props.OnSubmit();
+      }}
+    >
+      <input
+        placeholder="What needs to be done?"
+        onChange={e => {
+          props.onChange(e.target.value);
+        }}
+        value={props.inputText}
+        type="text"
+      />
     </form>
-  )
+  );
 }
 
 function mapStateToProps(state) {
   return {
-    inputText: state.inputText
+    inputText: state.app.inputText,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChange: (e) => dispatch(changeInput(e)),
-    OnSubmit: (e) => dispatch(submit(e))
+    onChange: data => dispatch(AppActionCreators.changeInput(data)),
+    OnSubmit: () => dispatch(AppActionCreators.submit()),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form)
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

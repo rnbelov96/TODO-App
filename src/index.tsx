@@ -4,10 +4,10 @@ import './style/bootstrap-reboot.min.css';
 import './style/main.sass';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './redux/reducers/rootReducer';
+import App from './App';
+import rootReducer from './redux/reducers/root-reducer';
 
 const store = createStore(rootReducer);
 
