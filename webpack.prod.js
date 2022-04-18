@@ -6,15 +6,19 @@ const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
+  entry: ['./src/index.tsx'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle-[hash].js',
   },
   mode: 'production',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx', 'json'],
+  },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },
