@@ -1,7 +1,7 @@
 import React from 'react';
-import { ControlPanel } from '../control-panel';
-import { Form } from '../form';
-import { TODOList } from '../TODO-list';
+import { ControlPanel } from 'components/control-panel';
+import { Form } from 'components/form';
+import { TODOList } from 'components/TODO-list';
 
 export default () => (
   <div className="container">
