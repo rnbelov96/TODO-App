@@ -6,7 +6,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-export const PureForm: React.FunctionComponent<FormPropsType> = ({
+export const PureCreateForm: React.FunctionComponent<FormPropsType> = ({
   inputText,
   onSubmit,
   onChange,
@@ -42,4 +42,4 @@ function mapDispatchToProps(dispatch: Dispatch<AppActionType>) {
   };
 }
 
-export const Form = connect(mapStateToProps, mapDispatchToProps)(PureForm);
+export const CreateForm = connect(mapStateToProps, mapDispatchToProps)(PureCreateForm);

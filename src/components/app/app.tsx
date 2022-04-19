@@ -1,13 +1,13 @@
 import React from 'react';
 import { ControlPanel } from 'components/control-panel';
-import { Form } from 'components/form';
+import { CreateForm } from '@/components/create-form';
 import { TODOList } from 'components/TODO-list';
 
 export const App = () => (
   <div className="container">
     <h1 className="title">todos</h1>
     <div className="content">
-      <Form />
+      <CreateForm />
       <TODOList />
       <ControlPanel />
     </div>
