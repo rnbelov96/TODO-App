@@ -1,11 +1,13 @@
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 import './style/bootstrap-reboot.min.css';
 import './style/main.sass';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './redux/reducers/rootReducer';
+import rootReducer from './redux/reducers/root-reducer';
+import App from './components/app/app';
 
 const store = createStore(rootReducer);
 
