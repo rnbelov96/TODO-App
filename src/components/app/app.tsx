@@ -3,7 +3,7 @@ import { ControlPanel } from 'components/control-panel';
 import { Form } from 'components/form';
 import { TODOList } from 'components/TODO-list';
 
-export default () => (
+export const App = () => (
   <div className="container">
     <h1 className="title">todos</h1>
     <div className="content">
