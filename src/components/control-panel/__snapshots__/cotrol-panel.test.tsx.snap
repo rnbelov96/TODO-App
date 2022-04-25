@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlPanel should render control panel 1`] = `
+<div
+  className="controlPanel"
+>
+  <div
+    className="controlPanel__itemsLeft"
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  >
+    1
+     
+    items left
+  </div>
+  <div
+    className="controlPanel__groupButtons"
+  >
+    <button
+      className="controlPanel__groupButton controlPanel__groupButton_active"
+      onClick={[Function]}
+      type="button"
+    >
+      All
+    </button>
+    <button
+      className="controlPanel__groupButton"
+      onClick={[Function]}
+      type="button"
+    >
+      Active
+    </button>
+    <button
+      className="controlPanel__groupButton"
+      onClick={[Function]}
+      type="button"
+    >
+      Completed
+    </button>
+  </div>
+  <button
+    className="controlPanel__clearButton"
+    onClick={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    type="button"
+  >
+    Clear completed
+  </button>
+</div>
+`;

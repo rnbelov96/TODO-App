@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateForm should render create form 1`] = `
+<form
+  className="form"
+  onSubmit={[Function]}
+>
+  <input
+    onChange={[Function]}
+    placeholder="What needs to be done?"
+    type="text"
+    value="Some text"
+  />
+</form>
+`;
