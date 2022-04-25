@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TODOList should render todo list 1`] = `
+Array [
+  <div
+    className="todoItem"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Go for a walk
+    <button
+      className="todoItem__deleteButton"
+      onClick={[Function]}
+      type="button"
+    >
+      x
+    </button>
+  </div>,
+  <div
+    className="todoItem"
+  >
+    <input
+      checked={false}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Read the book
+    <button
+      className="todoItem__deleteButton"
+      onClick={[Function]}
+      type="button"
+    >
+      x
+    </button>
+  </div>,
+  <div
+    className="todoItem todoItem_done"
+  >
+    <input
+      checked={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    Call my friends
+    <button
+      className="todoItem__deleteButton"
+      onClick={[Function]}
+      type="button"
+    >
+      x
+    </button>
+  </div>,
+]
+`;
